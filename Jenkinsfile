@@ -19,13 +19,13 @@ pipeline{
         }
         stage("Deploy on Test"){
             steps{
-                    // deploy on container ---plugin should be installed in jenkins ui
+                    // deploy on container ---plugin should be installed in jenkins ui..
                 deploy adapters: [tomcat9(credentialsId: 'tomcatdetails', path: '', url: 'http://20.235.136.234:8080/')], contextPath: '/app', war: '**/*.war'  
             }
         }
         stage("Deploy on Prod"){
             steps{
-                    // deploy on container ---plugin should be installed in jenkins ui
+                    // deploy on container ---plugin should be installed in jenkins ui..
                 deploy adapters: [tomcat9(credentialsId: 'tomcatdetails', path: '', url: 'http://20.244.37.145:8080/')], contextPath: '/app', war: '**/*.war'    
             }
         }
