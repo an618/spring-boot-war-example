@@ -24,6 +24,10 @@ pipeline{
             }
         }
         stage("Deploy on Prod"){
+            input {
+                message "Should we continue"
+                ok "Yes you should"
+            }
             steps{
                     // deploy on container ---plugin should be installed in jenkins ui..
                 deploy adapters: [tomcat9(credentialsId: 'tomcatdetails', path: '', url: 'http://20.244.37.145:8080/')], contextPath: '/app', war: '**/*.war'    
